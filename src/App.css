@@ -1,0 +1,106 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: serif;
+}
+
+/* reset css  */
+.container-fluid{
+    height: 100vh !important;
+    width: 100%;
+}
+li{
+    list-style: none;
+
+}
+a{
+    text-decoration: none;
+}
+
+body{
+    position: relative;
+}
+
+/* utility classes */
+
+.myflex{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+
+span{
+transition: all 1s ease !important;    
+}
+span:hover{
+color: green !important;    
+}
+
+/* home page */
+
+/* left side */
+
+.leftside{
+    display: flex ;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+    align-content: space-evenly;
+    flex-wrap: wrap;
+    row-gap: 30px;
+
+    h1{
+        font-size: 60px;
+        font-weight: bold;
+        transition: all 1s ease;
+    }
+    h3{
+        font-size: 30px;
+        font-weight: bold;
+    }
+    p{
+        word-spacing: 5px;
+        line-height: 40px;
+        font-size: 20px;
+        transition: all 1s ease;
+
+    }
+
+    h1:hover{
+        font-size: 70px;
+        font-weight: bolder;
+        color: green;
+        
+    }
+    p:hover{
+        word-spacing: 6px;
+        line-height: 50px;
+        color: gray;
+    }
+}
+
+
+/* .rightside{
+   
+} */
+
+/* footer */
+
+.footer{
+    
+height: 50px;
+width: 100%;
+background-color: #2b3035 !important;
+display: flex;
+justify-content: center;
+align-items: center;
+position: fixed;
+bottom: 0;
+p{
+    color: white;
+}
+}
