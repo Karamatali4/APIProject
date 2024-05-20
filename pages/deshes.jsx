@@ -1,7 +1,5 @@
 import { useState, useEffect } from 'react';
 import Cards from '../components/cards';
-import { Await } from 'react-router-dom';
-// import Cards from '../components/Cards';
 
 const API_KEY = 'JMOK1idC7fOM3XwG77WyHVkitCHtJbHrXR1HAByFTH2ptBc8AYI6B5Wf';
 
@@ -10,28 +8,37 @@ function Dish() {
 
   useEffect(() => {
     const fetchPhotos = async () => {
-      const response = await fetch("https://api.pexels.com/v1/search?query=dishes&per_page=40", {
-        headers: {
-          Authorization: API_KEY
-        }
-      });
-      const data = await response.json();
-       setPhotos(data.photos || []);
+      try {
+        const response = await fetch("https://api.pexels.com/v1/search?query=dishes&per_page=40", {
+          headers: {
+            Authorization: API_KEY
+          }
+        });
+        const data = await response.json();
+        setPhotos(data.photos || []);
+      } catch (error) {
+        console.error("Error fetching photos:", error);
+      }
     };
 
     fetchPhotos();
   }, []);
 
   const mydata = photos.map((data, index) => (
-    <Cards key={index} img={data.src.original} name={data.photographer} imgsize="300px" imgh="300px" />
-    
+    <Cards 
+      key={index} 
+      img={data.src.original} 
+      name={data.photographer} 
+      imgsize="300px" 
+      imgh="300px" 
+    />
   ));
 
   return (
     <div className="container">
       <h1 className='text-center'>Dishes Photos</h1>
       <div className="row">
-        <div className="col-12  col-md-12 d-flex flex-wrap justify-content-evenly align-items-center">
+        <div className="col-12 col-md-12 d-flex flex-wrap justify-content-evenly align-items-center">
           {mydata}
         </div>
       </div>
