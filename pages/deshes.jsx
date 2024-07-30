@@ -5,10 +5,12 @@ const API_KEY = 'JMOK1idC7fOM3XwG77WyHVkitCHtJbHrXR1HAByFTH2ptBc8AYI6B5Wf';
 
 function Dish() {
   const [photos, setPhotos] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchPhotos = async () => {
       try {
+        setLoading(true);
         const response = await fetch("https://api.pexels.com/v1/search?query=dishes&per_page=40", {
           headers: {
             Authorization: API_KEY
@@ -18,11 +20,17 @@ function Dish() {
         setPhotos(data.photos || []);
       } catch (error) {
         console.error("Error fetching photos:", error);
+      } finally {
+        setLoading(false);
       }
     };
 
     fetchPhotos();
   }, []);
+
+  if (loading) {
+    return <div className="text-center"><h1>Loading.....</h1></div>;
+  }
 
   const mydata = photos.map((data, index) => (
     <Cards 
