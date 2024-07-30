@@ -2,6 +2,7 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import { NavLink } from "react-router-dom";
 function Navs() {
   return (
     <>
@@ -12,16 +13,53 @@ function Navs() {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
-          <Nav.Link className='fw-bolder fs-5' href="/">Home</Nav.Link>
-            <Nav.Link className='fw-bolder fs-5' href="/country">Countries</Nav.Link>
+          {/* <Nav.Link className='fw-bolder fs-5' href="/">Home</Nav.Link> */}
+          <NavLink
+  to="/"
+  className="fw-bolder fs-5 me-3"
+>
+  Home
+</NavLink>
+          
+
+            {/* <Nav.Link className='fw-bolder fs-5' href="/country">Countries</Nav.Link> */}
+            <NavLink
+  to="/country"
+  className="fw-bolder fs-5"
+>
+  Country
+</NavLink>
             
           </Nav>
           <Nav>
-            <Nav.Link href="/dish" className='fw-bolder fs-5'>Dishes Picture</Nav.Link>
-            <Nav.Link href="/animal" className='fw-bolder fs-5'>Animal Picture</Nav.Link>
-            <Nav.Link eventKey={2} href="/nature" className='fw-bolder fs-5'>
+            {/* <Nav.Link href="/dish" className='fw-bolder fs-5'>Dishes Picture</Nav.Link> */}
+            <NavLink
+  to="/dish"
+  className="fw-bolder fs-5 pe-3"
+>
+  Dishes picture
+</NavLink>;
+            {/* <Nav.Link href="/animal" className='fw-bolder fs-5'>Animal Picture</Nav.Link> */}
+
+            <NavLink
+  to="/animal"
+  className="fw-bolder fs-5 me-3"
+>
+  Animal
+</NavLink>;
+
+
+            {/* <Nav.Link eventKey={2} href="/nature" className='fw-bolder fs-5'>
               Nature Pictures
-            </Nav.Link>
+            </Nav.Link> */}
+
+<NavLink
+  to="/nature"
+  className="fw-bolder fs-5 me-3"
+  eventKey={2}
+>
+  nature picture
+</NavLink>;
           </Nav>
         </Navbar.Collapse>
       </Container>
